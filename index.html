@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="NEXORA TECH — Tecnología, hardware y accesorios. Explora nuestro catálogo tecnológico de demostración.">
+<title>NEXORA TECH | Tecnología sin límites</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg:#080b12;
+    --surface:#0e1420;
+    --card:#111a29;
+    --card2:#151f30;
+    --border:rgba(255,255,255,.09);
+    --text:#f2f5fc;
+    --muted:#929db0;
+    --blue:#548cff;
+    --cyan:#64d9ed;
+    --green:#55d6a0;
+    --danger:#ff647c;
+    --font:'Space Grotesk',sans-serif;
+    --mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden}
+body.no-scroll{overflow:hidden}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{width:min(1180px,91%);margin:auto}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+.blue{color:var(--blue)}
+.hidden{display:none!important}
+
+/* ANNOUNCEMENT */
+.announcement{
+    background:#101d32;
+    border-bottom:1px solid rgba(84,140,255,.15);
+    text-align:center;
+    padding:9px 12px;
+    font-size:11px;
+    color:#c4d5f6;
+    letter-spacing:.4px;
+}
+.announcement span{color:var(--cyan);font-weight:700}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,11,18,.91);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+.nav{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+.logo{
+    font-size:23px;
+    font-weight:700;
+    letter-spacing:-1.3px;
+    white-space:nowrap;
+}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-size:13px;color:var(--muted);transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:white}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.icon-button{
+    position:relative;
+    width:42px;height:42px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:white;
+    border-radius:9px;
+    display:grid;
+    place-items:center;
+    font-size:18px;
+    transition:.2s;
+}
+.icon-button:hover{border-color:var(--blue);color:var(--blue)}
+.cart-count{
+    position:absolute;
+    top:-6px;right:-6px;
+    min-width:18px;height:18px;
+    padding:0 4px;
+    border-radius:20px;
+    background:var(--blue);
+    color:white;
+    font-size:10px;
+    display:grid;
+    place-items:center;
+    font-weight:700;
+}
+.menu-toggle{display:none}
+
+/* HERO */
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:85px 0 75px;
+    background:
+      radial-gradient(ellipse at 78% 40%,rgba(48,103,218,.17),transparent 45%),
+      linear-gradient(135deg,#0b111d,#080b12 65%);
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;height:400px;
+    right:-170px;top:-180px;
+    border:1px solid rgba(84,140,255,.12);
+    border-radius:50%;
+    box-shadow:0 0 0 50px rgba(84,140,255,.025),0 0 0 100px rgba(84,140,255,.02);
+}
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+    position:relative;
+    z-index:1;
+}
+.eyebrow{
+    display:flex;align-items:center;gap:10px;
+    color:var(--cyan);
+    font:11px var(--mono);
+    letter-spacing:2px;
+    margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--cyan)}
+.hero h1{
+    font-size:clamp(43px,6vw,72px);
+    line-height:1.02;
+    letter-spacing:-4px;
+    max-width:650px;
+}
+.hero h1 span{
+    background:linear-gradient(100deg,#6b9dff,#63d9ed);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+.hero-copy{
+    color:var(--muted);
+    max-width:510px;
+    line-height:1.85;
+    font-size:14px;
+    margin:24px 0 30px;
+}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+    border:1px solid transparent;
+    padding:13px 19px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    transition:.25s;
+}
+.btn-primary{background:var(--blue);color:white}
+.btn-primary:hover{background:#3975ee;transform:translateY(-2px)}
+.btn-outline{border-color:var(--border);background:rgba(255,255,255,.025);color:white}
+.btn-outline:hover{border-color:var(--blue);color:#9fc0ff}
+.hero-note{margin-top:25px;color:#758197;font:10px var(--mono)}
+.hero-visual{position:relative}
+.hero-visual img{
+    width:100%;height:390px;object-fit:cover;
+    border-radius:15px;
+    border:1px solid var(--border);
+    filter:saturate(.85);
+}
+.hero-visual::after{
+    content:"";
+    position:absolute;inset:0;
+    border-radius:15px;
+    background:linear-gradient(0deg,rgba(8,11,18,.5),transparent 65%);
+    pointer-events:none;
+}
+.hero-floating{
+    position:absolute;
+    z-index:2;
+    bottom:20px;left:-20px;
+    padding:15px 18px;
+    background:rgba(14,20,32,.94);
+    border:1px solid var(--border);
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+.hero-floating small{display:block;color:var(--muted);font:9px var(--mono);margin-bottom:6px}
+.hero-floating strong{font-size:13px}
+
+/* TRUST STRIP */
+.trust-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#0b101a}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{
+    padding:23px 12px;
+    text-align:center;
+    border-right:1px solid var(--border);
+}
+.trust-item:last-child{border:0}
+.trust-item strong{display:block;font-size:13px;margin-bottom:5px}
+.trust-item span{color:var(--muted);font-size:10px}
+
+/* SECTION */
+section{padding:85px 0}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:35px}
+.section-kicker{font:10px var(--mono);letter-spacing:2px;color:var(--blue);margin-bottom:12px}
+.section-title{font-size:clamp(28px,4vw,40px);letter-spacing:-1.8px}
+.section-description{color:var(--muted);font-size:13px;line-height:1.7;margin-top:10px;max-width:540px}
+.view-all{color:var(--blue);font-size:12px;font-weight:700;white-space:nowrap}
+
+/* CATEGORIES */
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.category-card{
+    min-height:145px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    background:linear-gradient(145deg,#141f30,#0e1420);
+    padding:22px;
+    text-align:left;
+    color:white;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+.category-card::after{
+    content:"";
+    position:absolute;width:110px;height:110px;
+    right:-30px;bottom:-45px;border-radius:50%;
+    background:rgba(84,140,255,.12);
+    filter:blur(8px);
+}
+.category-card:hover,.category-card.selected{
+    border-color:rgba(84,140,255,.7);
+    transform:translateY(-3px);
+}
+.category-icon{font-size:25px;margin-bottom:15px}
+.category-card strong{display:block;font-size:14px;position:relative;z-index:1}
+.category-card small{color:var(--muted);font-size:10px;display:block;margin-top:5px}
+
+/* PRODUCTS */
+.catalog{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.catalog-toolbar{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:15px;flex-wrap:wrap;margin-bottom:25px;
+}
+.search-box{
+    display:flex;align-items:center;gap:10px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:0 14px;
+    width:min(350px,100%);
+}
+.search-box span{color:var(--muted)}
+.search-box input{
+    width:100%;height:44px;
+    border:0;outline:0;background:transparent;color:white;
+    font-size:12px;
+}
+.toolbar-right{display:flex;align-items:center;gap:12px}
+.result-count{font-size:11px;color:var(--muted)}
+.sort-select{
+    background:var(--bg);
+    border:1px solid var(--border);
+    color:white;
+    border-radius:8px;
+    padding:12px;
+    font-size:11px;
+    outline:0;
+}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:27px}
+.filter-chip{
+    border:1px solid var(--border);
+    background:transparent;color:var(--muted);
+    border-radius:30px;padding:8px 13px;
+    font-size:10px;transition:.2s;
+}
+.filter-chip:hover,.filter-chip.active{
+    color:white;background:rgba(84,140,255,.14);
+    border-color:rgba(84,140,255,.5);
+}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.product-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:11px;
+    overflow:hidden;
+    transition:.25s;
+    min-width:0;
+}
+.product-card:hover{transform:translateY(-5px);border-color:rgba(84,140,255,.45)}
+.product-image-wrap{
+    height:190px;
+    background:#182234;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+.product-image{
+    width:100%;height:100%;object-fit:cover;
+    transition:.4s;
+}
+.product-card:hover .product-image{transform:scale(1.05)}
+.product-badge{
+    position:absolute;top:12px;left:12px;
+    padding:6px 9px;border-radius:5px;
+    background:rgba(84,140,255,.95);
+    color:white;font:9px var(--mono);
+}
+.product-badge.sale{background:#d65b77}
+.product-info{padding:16px}
+.product-category{font:9px var(--mono);color:var(--blue);letter-spacing:1px}
+.product-name{font-size:14px;margin:8px 0 7px;min-height:36px}
+.product-rating{font-size:10px;color:#f4c76b;margin-bottom:13px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.product-price{font-size:16px;font-weight:700}
+.product-old-price{font-size:10px;color:#778196;text-decoration:line-through;margin-left:5px}
+.add-button{
+    width:35px;height:35px;border-radius:8px;
+    border:1px solid rgba(84,140,255,.35);
+    background:rgba(84,140,255,.12);
+    color:#9dbbff;font-size:19px;
+    transition:.2s;
+}
+.add-button:hover{background:var(--blue);color:white}
+.empty-state{
+    grid-column:1/-1;
+    text-align:center;padding:65px 15px;
+    color:var(--muted);border:1px dashed var(--border);border-radius:10px;
+}
+.empty-state strong{display:block;color:white;margin-bottom:8px}
+.catalog-footer{text-align:center;margin-top:30px;color:var(--muted);font-size:10px}
+
+/* FEATURE BANNER */
+.feature-banner{
+    display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;gap:35px;
+    background:linear-gradient(120deg,#142440,#0d1421);
+    border:1px solid rgba(84,140,255,.2);
+    border-radius:14px;padding:35px;
+    overflow:hidden;
+}
+.feature-banner img{width:100%;height:260px;object-fit:cover;border-radius:10px}
+.feature-banner h3{font-size:30px;letter-spacing:-1.5px;margin:12px 0}
+.feature-banner p{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:22px}
+
+/* FOOTER */
+footer{background:#060910;border-top:1px solid var(--border);padding:55px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.footer-brand p{font-size:12px;color:var(--muted);line-height:1.8;max-width:310px;margin-top:15px}
+.footer-column h4{font-size:12px;margin-bottom:17px}
+.footer-column a{display:block;color:var(--muted);font-size:11px;margin:11px 0}
+.footer-column a:hover{color:var(--blue)}
+.footer-bottom{
+    border-top:1px solid var(--border);padding-top:22px;
+    display:flex;justify-content:space-between;gap:15px;
+    color:#778196;font-size:10px;
+}
+
+/* CART DRAWER */
+.overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.65);
+    z-index:200;opacity:0;visibility:hidden;transition:.25s;
+}
+.overlay.active{opacity:1;visibility:visible}
+.cart-drawer{
+    position:fixed;z-index:201;right:0;top:0;
+    width:min(430px,100%);height:100%;
+    background:#0d1420;border-left:1px solid var(--border);
+    transform:translateX(100%);transition:.3s;
+    display:flex;flex-direction:column;
+}
+.cart-drawer.active{transform:translateX(0)}
+.drawer-header{
+    padding:23px;border-bottom:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;
+}
+.drawer-header h3{font-size:18px}
+.close-button{
+    border:0;background:transparent;color:var(--muted);
+    font-size:24px;padding:2px 8px;
+}
+.cart-items{padding:15px 22px;overflow:auto;flex:1}
+.cart-empty{text-align:center;color:var(--muted);padding:65px 10px;font-size:13px}
+.cart-item{
+    display:grid;grid-template-columns:70px 1fr auto;
+    gap:13px;padding:15px 0;border-bottom:1px solid var(--border);
+}
+.cart-item img{width:70px;height:70px;object-fit:cover;border-radius:8px}
+.cart-item h4{font-size:12px;margin:4px 0 7px}
+.cart-item-price{color:#9dbbff;font-size:11px;font-weight:700}
+.quantity-controls{display:flex;align-items:center;gap:9px;margin-top:9px}
+.quantity-controls button{
+    width:23px;height:23px;border:1px solid var(--border);
+    background:var(--card);color:white;border-radius:5px;
+}
+.remove-item{border:0;background:none;color:var(--danger);font-size:15px;align-self:start}
+.drawer-footer{padding:22px;border-top:1px solid var(--border)}
+.subtotal{display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:8px}
+.shipping-note{font-size:10px;color:var(--muted);margin-bottom:17px}
+.checkout-button{width:100%;border:0}
+.demo-warning{font-size:9px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+
+/* MODAL */
+.modal-wrap{
+    position:fixed;inset:0;z-index:300;
+    display:grid;place-items:center;padding:18px;
+    background:rgba(0,0,0,.75);
+    opacity:0;visibility:hidden;transition:.2s;
+}
+.modal-wrap.active{opacity:1;visibility:visible}
+.modal{
+    width:min(760px,100%);max-height:90vh;overflow:auto;
+    background:#101927;border:1px solid var(--border);
+    border-radius:14px;position:relative;
+}
+.modal-close{
+    position:absolute;right:13px;top:13px;z-index:2;
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--border);background:#0b111b;color:white;font-size:19px;
+}
+.modal-content{display:grid;grid-template-columns:1fr 1fr}
+.modal-content img{height:100%;min-height:350px;width:100%;object-fit:cover}
+.modal-details{padding:35px 28px;display:flex;flex-direction:column;justify-content:center}
+.modal-details h3{font-size:25px;margin:12px 0}
+.modal-details p{font-size:12px;line-height:1.8;color:var(--muted);margin-bottom:20px}
+.modal-price{font-size:24px;font-weight:700;margin-bottom:20px}
+.modal-details .btn{width:100%}
+
+/* TOAST */
+.toast{
+    position:fixed;z-index:500;bottom:25px;left:50%;
+    transform:translate(-50%,20px);
+    background:#172438;border:1px solid rgba(84,140,255,.4);
+    color:white;padding:13px 19px;border-radius:8px;
+    font-size:12px;opacity:0;visibility:hidden;transition:.25s;
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    width:max-content;max-width:90%;
+}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* CHECKOUT MODAL */
+.checkout-content{padding:35px}
+.checkout-content h3{font-size:24px;margin-bottom:10px}
+.checkout-content p{color:var(--muted);font-size:12px;line-height:1.7;margin-bottom:20px}
+.checkout-summary{background:var(--bg);border:1px solid var(--border);padding:15px;border-radius:8px;margin-bottom:20px}
+.checkout-summary div{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}
+.checkout-content label{display:block;font-size:11px;color:var(--muted);margin:13px 0 6px}
+.checkout-content input{
+    width:100%;background:var(--bg);border:1px solid var(--border);
+    border-radius:7px;padding:12px;color:white;outline:none;
+}
+.checkout-content input:focus{border-color:var(--blue)}
+.checkout-content .btn{width:100%;margin-top:18px}
+.checkout-disclaimer{font-size:9px!important;margin:12px 0 0!important}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(20px);transition:.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+    .reveal{opacity:1;transform:none}
+}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+    .product-grid{grid-template-columns:repeat(3,1fr)}
+    .hero-grid{gap:30px}
+    .hero-visual img{height:340px}
+}
+@media(max-width:720px){
+    .nav-links{
+        display:none;position:absolute;top:76px;left:0;width:100%;
+        padding:22px 5%;background:#0d1420;border-bottom:1px solid var(--border);
+        flex-direction:column;align-items:flex-start;gap:20px;
+    }
+    .nav-links.open{display:flex}
+    .menu-toggle{display:grid}
+    .hero{padding:65px 0}
+    .hero-grid{grid-template-columns:1fr}
+    .hero h1{letter-spacing:-2.5px}
+    .hero-visual{margin:10px 0 0 15px}
+    .hero-visual img{height:300px}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+    .trust-item:nth-child(2){border-right:0}
+    .trust-item:nth-child(-n+2){border-bottom:1px solid var(--border)}
+    section{padding:65px 0}
+    .categories{grid-template-columns:repeat(2,1fr)}
+    .product-grid{grid-template-columns:repeat(2,1fr);gap:11px}
+    .product-image-wrap{height:155px}
+    .product-info{padding:12px}
+    .product-name{font-size:12px}
+    .product-price{font-size:14px}
+    .feature-banner{grid-template-columns:1fr;padding:22px}
+    .feature-banner img{height:210px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .footer-brand{grid-column:1/-1}
+    .modal-content{grid-template-columns:1fr}
+    .modal-content img{height:220px;min-height:220px}
+    .modal-details{padding:25px}
+}
+@media(max-width:430px){
+    .container{width:92%}
+    .logo{font-size:20px}
+    .nav{gap:10px}
+    .nav-actions{gap:7px}
+    .section-top{align-items:flex-start;flex-direction:column}
+    .toolbar-right{width:100%;justify-content:space-between}
+    .search-box{width:100%}
+    .product-image-wrap{height:135px}
+    .product-badge{font-size:8px;padding:5px 6px}
+    .product-old-price{display:block;margin:3px 0 0}
+    .add-button{width:31px;height:31px;flex-shrink:0}
+    .footer-grid{gap:25px}
+    .footer-bottom{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    <span>✦ NEXORA TECH</span> — Tecnología para llevar tus ideas más lejos.
+    <span> DEMO STORE</span>
+</div>
+
+<header>
+    <nav class="container nav">
+        <a href="#inicio" class="logo">NEXORA<span>.</span>TECH</a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#categorias">Categorías</a></li>
+            <li><a href="#catalogo">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="icon-button" id="openCart" aria-label="Abrir carrito">
+                ♧ <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="icon-button menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="container hero-grid">
+        <div class="reveal">
+            <div class="eyebrow">EL FUTURO ESTÁ AQUÍ</div>
+            <h1>La tecnología que impulsa <span>tu mundo.</span></h1>
+            <p class="hero-copy">
+                Descubre una selección de hardware, periféricos y accesorios
+                diseñados para quienes buscan rendimiento, innovación y estilo.
+            </p>
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn btn-primary">Explorar catálogo ↗</a>
+                <a href="#categorias" class="btn btn-outline">Ver categorías</a>
+            </div>
+            <div class="hero-note">NEXORA TECH / DIGITAL EXPERIENCE 2026</div>
+        </div>
+
+        <div class="hero-visual reveal">
+            <img
+                src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1200&q=85"
+                alt="Selección de dispositivos tecnológicos"
+                fetchpriority="high">
+            <div class="hero-floating">
+                <small>CATÁLOGO DIGITAL</small>
+                <strong>Explora. Compara. Elige.</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust-strip">
+    <div class="container trust-grid">
+        <div class="trust-item"><strong>✦ Selección tech</strong><span>Productos destacados</span></div>
+        <div class="trust-item"><strong>◈ Experiencia simple</strong><span>Navegación intuitiva</span></div>
+        <div class="trust-item"><strong>⌁ Diseño responsive</strong><span>PC, tablet y móvil</span></div>
+        <div class="trust-item"><strong>◎ Carrito interactivo</strong><span>Demo funcional</span></div>
+    </div>
+</div>
+
+<!-- CATEGORIES -->
+<section id="categorias">
+    <div class="container">
+        <div class="section-top reveal">
+            <div>
+                <div class="section-kicker">01 / EXPLORA</div>
+                <h2 class="section-title">Encuentra tu categoría.</h2>
+                <p class="section-description">Todo lo que necesitas para tu espacio de trabajo, gaming y entretenimiento.</p>
+            </div>
+        </div>
+
+        <div class="categories">
+            <button class="category-card reveal" data-category="Componentes">
+                <div class="category-icon">▦</div>
+                <strong>Componentes</strong>
+                <small>Hardware y rendimiento</small>
+            </button>
+            <button class="category-card reveal" data-category="Periféricos">
+                <div class="category-icon">⌨</div>
+                <strong>Periféricos</strong>
+                <small>Control y precisión</small>
+            </button>
+            <button class="category-card reveal" data-category="Audio">
+                <div class="category-icon">♫</div>
+                <strong>Audio</strong>
+                <small>Sonido a otro nivel</small>
+            </button>
+            <button class="category-card reveal" data-category="Accesorios">
+                <div class="category-icon">◇</div>
+                <strong>Accesorios</strong>
+                <small>Completa tu setup</small>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalogo">
+    <div class="container">
+        <div class="section-top reveal">
+            <div>
+                <div class="section-kicker">02 / CATÁLOGO</div>
+                <h2 class="section-title">Productos destacados.</h2>
+                <p class="section-description">Explora nuestro catálogo de demostración y encuentra tu próximo upgrade.</p>
+            </div>
+        </div>
+
+        <div class="catalog-toolbar">
+            <label class="search-box">
+                <span>⌕</span>
+                <input type="search" id="searchInput" placeholder="Buscar productos..." aria-label="Buscar productos">
+            </label>
+
+            <div class="toolbar-right">
+                <span class="result-count" id="resultCount">0 productos</span>
+                <select class="sort-select" id="sortSelect" aria-label="Ordenar productos">
+                    <option value="featured">Destacados</option>
+                    <option value="low">Menor precio</option>
+                    <option value="high">Mayor precio</option>
+                    <option value="name">Nombre A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filter-row" id="filterRow">
+            <button class="filter-chip active" data-filter="Todos">Todos</button>
+            <button class="filter-chip" data-filter="Componentes">Componentes</button>
+            <button class="filter-chip" data-filter="Periféricos">Periféricos</button>
+            <button class="filter-chip" data-filter="Audio">Audio</button>
+            <button class="filter-chip" data-filter="Accesorios">Accesorios</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="catalog-footer">
+            Precios expresados en pesos chilenos (CLP). Productos y valores ficticios para demostración.
+        </div>
+    </div>
+</section>
+
+<!-- FEATURE -->
+<section id="nosotros">
+    <div class="container">
+        <div class="feature-banner reveal">
+            <div>
+                <div class="section-kicker">03 / NUESTRA VISIÓN</div>
+                <h3>Más que tecnología. Una experiencia.</h3>
+                <p>
+                    NEXORA TECH es un proyecto demostrativo de comercio electrónico,
+                    creado para explorar una experiencia de compra moderna,
+                    intuitiva y adaptable a cualquier dispositivo.
+                </p>
+                <a href="#catalogo" class="btn btn-primary">Descubrir productos ↗</a>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85"
+                alt="Espacio de trabajo tecnológico"
+                loading="lazy">
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#inicio" class="logo">NEXORA<span>.</span>TECH</a>
+                <p>
+                    Tecnología, innovación y diseño en una experiencia digital.
+                    Proyecto de demostración desarrollado por MYREM.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Explorar</h4>
+                <a href="#categorias">Categorías</a>
+                <a href="#catalogo">Productos</a>
+                <a href="#nosotros">Sobre NEXORA</a>
+            </div>
+            <div class="footer-column">
+                <h4>Desarrollador</h4>
+                <a href="https://github.com/myrem-droid" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="https://myrem-droid.github.io/Mi-portafolio/" target="_blank" rel="noopener noreferrer">MYREM.DEV ↗</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> NEXORA TECH. Proyecto demostrativo.</span>
+            <span class="mono">DESIGNED & DEVELOPED BY MYREM</span>
+        </div>
+    </div>
+</footer>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
+    <div class="drawer-header">
+        <h3>Tu carrito <span class="blue" id="drawerCount">(0)</span></h3>
+        <button class="close-button" id="closeCart" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="drawer-footer">
+        <div class="subtotal"><span>Subtotal</span><span id="cartSubtotal">$0</span></div>
+        <p class="shipping-note">Envío y otros cargos no incluidos en esta demostración.</p>
+        <button class="btn btn-primary checkout-button" id="checkoutButton">Continuar compra ↗</button>
+        <p class="demo-warning">Demostración: no se procesan pagos ni se realizan pedidos reales.</p>
+    </div>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-wrap" id="productModal">
+    <div class="modal">
+        <button class="modal-close" data-close-modal aria-label="Cerrar">×</button>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-wrap" id="checkoutModal">
+    <div class="modal">
+        <button class="modal-close" data-close-modal aria-label="Cerrar">×</button>
+        <div class="checkout-content">
+            <div class="section-kicker">FINALIZAR COMPRA</div>
+            <h3>Resumen de tu pedido.</h3>
+            <p>Esta es una simulación de checkout. No ingreses datos personales ni información de pago real.</p>
+            <div class="checkout-summary" id="checkoutSummary"></div>
+            <label for="demoName">Nombre de demostración</label>
+            <input id="demoName" type="text" maxlength="35" placeholder="Ej. Usuario Demo">
+            <button class="btn btn-primary" id="confirmDemo">Simular pedido ✓</button>
+            <p class="checkout-disclaimer">No se envían datos a ningún servidor. Esta acción solo demuestra el flujo de compra.</p>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* ============================
+   NEXORA TECH - PRODUCT DATA
+   Todos los productos son ficticios.
+============================ */
+
+const products = [
+    {
+        id:1,
+        name:"NVIDIA GeForce RTX 4070",
+        category:"Componentes",
+        price:649990,
+        oldPrice:729990,
+        badge:"DESTACADO",
+        rating:"★★★★★ 4.9",
+        image:"https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=800&q=85",
+        description:"Tarjeta gráfica de demostración para gaming y creación de contenido. Una opción pensada para experiencias visuales exigentes."
+    },
+    {
+        id:2,
+        name:"AMD Ryzen 7 7800X3D",
+        category:"Componentes",
+        price:389990,
+        oldPrice:null,
+        badge:"POPULAR",
+        rating:"★★★★★ 4.9",
+        image:"https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=800&q=85",
+        description:"Procesador de alto rendimiento para equipos de gaming y productividad. Ideal para una configuración potente."
+    },
+    {
+        id:3,
+        name:"Teclado mecánico RGB",
+        category:"Periféricos",
+        price:59990,
+        oldPrice:74990,
+        badge:"OFERTA",
+        rating:"★★★★★ 4.8",
+        image:"https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=85",
+        description:"Teclado mecánico compacto con iluminación RGB y diseño pensado para escritorios modernos."
+    },
+    {
+        id:4,
+        name:"Mouse Gaming Pro",
+        category:"Periféricos",
+        price:32990,
+        oldPrice:null,
+        badge:"",
+        rating:"★★★★☆ 4.6",
+        image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=85",
+        description:"Mouse ligero con diseño ergonómico y controles configurables para distintas formas de uso."
+    },
+    {
+        id:5,
+        name:"Headset Nova Wireless",
+        category:"Audio",
+        price:89990,
+        oldPrice:99990,
+        badge:"OFERTA",
+        rating:"★★★★★ 4.7",
+        image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85",
+        description:"Auriculares inalámbricos de diseño moderno, pensados para gaming, música y entretenimiento."
+    },
+    {
+        id:6,
+        name:"Monitor UltraView 27",
+        category:"Periféricos",
+        price:219990,
+        oldPrice:null,
+        badge:"NUEVO",
+        rating:"★★★★★ 4.8",
+        image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=85",
+        description:"Monitor de 27 pulgadas de estilo minimalista para una estación de trabajo o gaming."
+    },
+    {
+        id:7,
+        name:"SSD NVMe 1TB",
+        category:"Componentes",
+        price:74990,
+        oldPrice:null,
+        badge:"",
+        rating:"★★★★★ 4.8",
+        image:"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=85",
+        description:"Unidad de almacenamiento de estado sólido para ampliar el espacio de tu computador."
+    },
+    {
+        id:8,
+        name:"Micrófono Studio USB",
+        category:"Audio",
+        price:49990,
+        oldPrice:59990,
+        badge:"OFERTA",
+        rating:"★★★★☆ 4.5",
+        image:"https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=85",
+        description:"Micrófono USB de escritorio para grabaciones, streaming y reuniones virtuales."
+    },
+    {
+        id:9,
+        name:"Mousepad XL Control",
+        category:"Accesorios",
+        price:14990,
+        oldPrice:null,
+        badge:"",
+        rating:"★★★★★ 4.7",
+        image:"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=85",
+        description:"Superficie amplia para teclado y mouse, con una estética sobria para completar tu setup."
+    },
+    {
+        id:10,
+        name:"Webcam Full HD",
+        category:"Accesorios",
+        price:27990,
+        oldPrice:null,
+        badge:"POPULAR",
+        rating:"★★★★☆ 4.4",
+        image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=85",
+        description:"Cámara web compacta para videollamadas, clases y reuniones online."
+    },
+    {
+        id:11,
+        name:"Gabinete Crystal RGB",
+        category:"Componentes",
+        price:89990,
+        oldPrice:null,
+        badge:"",
+        rating:"★★★★★ 4.8",
+        image:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=85",
+        description:"Gabinete de diseño moderno con panel lateral transparente y espacio para componentes."
+    },
+    {
+        id:12,
+        name:"Hub USB-C 7 en 1",
+        category:"Accesorios",
+        price:24990,
+        oldPrice:null,
+        badge:"",
+        rating:"★★★★☆ 4.5",
+        image:"https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=800&q=85",
+        description:"Hub multipuerto para ampliar la conectividad de computadores y dispositivos compatibles."
+    }
+];
+
+/* ============================
+   STATE
+============================ */
+
+const $ = selector => document.querySelector(selector);
+
+let activeCategory = "Todos";
+let searchTerm = "";
+let sortMode = "featured";
+let cart = loadCart();
+let toastTimer;
+
+/* ============================
+   UTILITIES
+============================ */
+
+function formatPrice(value) {
+    return new Intl.NumberFormat("es-CL", {
+        style:"currency",
+        currency:"CLP",
+        maximumFractionDigits:0
+    }).format(value);
+}
+
+function loadCart() {
+    try {
+        const saved = JSON.parse(localStorage.getItem("nexora_cart") || "[]");
+        if (!Array.isArray(saved)) return [];
+        return saved.filter(item =>
+            products.some(product => product.id === item.id) &&
+            Number.isInteger(item.quantity) &&
+            item.quantity > 0 &&
+            item.quantity <= 99
+        );
+    } catch {
+        return [];
+    }
+}
+
+function saveCart() {
+    try {
+        localStorage.setItem("nexora_cart", JSON.stringify(cart));
+    } catch {
+        showToast("No se pudo guardar el carrito en este navegador.");
+    }
+}
+
+function showToast(message) {
+    const toast = $("#toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+}
+
+/* ============================
+   PRODUCT RENDERING
+============================ */
+
+function getFilteredProducts() {
+    let result = products.filter(product => {
+        const matchesCategory =
+            activeCategory === "Todos" || product.category === activeCategory;
+
+        const text = `${product.name} ${product.category}`.toLowerCase();
+        const matchesSearch = text.includes(searchTerm.toLowerCase());
+
+        return matchesCategory && matchesSearch;
+    });
+
+    if (sortMode === "low") result.sort((a,b) => a.price-b.price);
+    if (sortMode === "high") result.sort((a,b) => b.price-a.price);
+    if (sortMode === "name") result.sort((a,b) => a.name.localeCompare(b.name));
+
+    return result;
+}
+
+function renderProducts() {
+    const grid = $("#productGrid");
+    const filtered = getFilteredProducts();
+
+    $("#resultCount").textContent =
+        `${filtered.length} ${filtered.length === 1 ? "producto" : "productos"}`;
+
+    if (!filtered.length) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <strong>No encontramos resultados.</strong>
+                Prueba con otro nombre o categoría.
+            </div>`;
+        return;
+    }
+
+    grid.innerHTML = filtered.map(product => `
+        <article class="product-card">
+            <div class="product-image-wrap" data-view="${product.id}" tabindex="0" role="button" aria-label="Ver ${product.name}">
+                <img class="product-image"
+                     src="${product.image}"
+                     alt="${product.name}"
+                     loading="lazy">
+                ${product.badge ? `<span class="product-badge ${product.badge === "OFERTA" ? "sale" : ""}">${product.badge}</span>` : ""}
+            </div>
+
+            <div class="product-info">
+                <div class="product-category">${product.category.toUpperCase()}</div>
+                <h3 class="product-name">${product.name}</h3>
+                <div class="product-rating">${product.rating}</div>
+
+                <div class="product-bottom">
+                    <div>
+                        <div class="product-price">${formatPrice(product.price)}</div>
+                        ${product.oldPrice ? `<span class="product-old-price">${formatPrice(product.oldPrice)}</span>` : ""}
+                    </div>
+                    <button class="add-button" data-add="${product.id}" aria-label="Agregar ${product.name} al carrito">+</button>
+                </div>
+            </div>
+        </article>
+    `).join("");
+}
+
+/* ============================
+   FILTERS AND SEARCH
+============================ */
+
+function setCategory(category) {
+    activeCategory = category;
+
+    document.querySelectorAll(".filter-chip").forEach(button => {
+        button.classList.toggle("active", button.dataset.filter === category);
+    });
+
+    document.querySelectorAll(".category-card").forEach(button => {
+        button.classList.toggle("selected", button.dataset.category === category);
+    });
+
+    renderProducts();
+}
+
+$("#filterRow").addEventListener("click", event => {
+    const button = event.target.closest("[data-filter]");
+    if (button) setCategory(button.dataset.filter);
+});
+
+document.querySelector(".categories").addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+    if (!button) return;
+
+    setCategory(button.dataset.category);
+    $("#catalogo").scrollIntoView({behavior:"smooth"});
+});
+
+$("#searchInput").addEventListener("input", event => {
+    searchTerm = event.target.value.trim();
+    renderProducts();
+});
+
+$("#sortSelect").addEventListener("change", event => {
+    sortMode = event.target.value;
+    renderProducts();
+});
+
+/* ============================
+   CART
+============================ */
+
+function addToCart(id) {
+    const product = products.find(item => item.id === id);
+    if (!product) return;
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        if (existing.quantity >= 99) {
+            showToast("Has alcanzado el máximo de unidades.");
+            return;
+        }
+        existing.quantity++;
+    } else {
+        cart.push({id, quantity:1});
+    }
+
+    saveCart();
+    renderCart();
+    showToast(`${product.name} agregado al carrito.`);
+}
+
+function changeQuantity(id, amount) {
+    const item = cart.find(product => product.id === id);
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(product => product.id !== id);
+    }
+
+    saveCart();
+    renderCart();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    saveCart();
+    renderCart();
+    showToast("Producto eliminado.");
+}
+
+function getCartCount() {
+    return cart.reduce((sum,item) => sum + item.quantity, 0);
+}
+
+function getCartTotal() {
+    return cart.reduce((sum,item) => {
+        const product = products.find(product => product.id === item.id);
+        return sum + (product ? product.price * item.quantity : 0);
+    }, 0);
+}
+
+function renderCart() {
+    const count = getCartCount();
+    $("#cartCount").textContent = count;
+    $("#drawerCount").textContent = `(${count})`;
+    $("#cartSubtotal").textContent = formatPrice(getCartTotal());
+
+    const container = $("#cartItems");
+
+    if (!cart.length) {
+        container.innerHTML = `
+            <div class="cart-empty">
+                <div style="font-size:35px;margin-bottom:15px">♧</div>
+                Tu carrito está vacío.<br>
+                Explora el catálogo y agrega productos.
+            </div>`;
+        $("#checkoutButton").disabled = true;
+        $("#checkoutButton").style.opacity = ".45";
+        return;
+    }
+
+    $("#checkoutButton").disabled = false;
+    $("#checkoutButton").style.opacity = "1";
+
+    container.innerHTML = cart.map(item => {
+        const product = products.find(product => product.id === item.id);
+        if (!product) return "";
+
+        return `
+            <div class="cart-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div>
+                    <h4>${product.name}</h4>
+                    <div class="cart-item-price">${formatPrice(product.price)}</div>
+                    <div class="quantity-controls">
+                        <button data-quantity="${product.id}" data-change="-1" aria-label="Reducir cantidad">−</button>
+                        <span>${item.quantity}</span>
+                        <button data-quantity="${product.id}" data-change="1" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                </div>
+                <button class="remove-item" data-remove="${product.id}" aria-label="Eliminar producto">✕</button>
+            </div>`;
+    }).join("");
+}
+
+$("#productGrid").addEventListener("click", event => {
+    const addButton = event.target.closest("[data-add]");
+    if (addButton) {
+        addToCart(Number(addButton.dataset.add));
+        return;
+    }
+
+    const view = event.target.closest("[data-view]");
+    if (view) openProduct(Number(view.dataset.view));
+});
+
+$("#productGrid").addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const view = event.target.closest("[data-view]");
+    if (view) {
+        event.preventDefault();
+        openProduct(Number(view.dataset.view));
+    }
+});
+
+$("#cartItems").addEventListener("click", event => {
+    const quantityButton = event.target.closest("[data-quantity]");
+    const removeButton = event.target.closest("[data-remove]");
+
+    if (quantityButton) {
+        changeQuantity(
+            Number(quantityButton.dataset.quantity),
+            Number(quantityButton.dataset.change)
+        );
+    }
+
+    if (removeButton) {
+        removeFromCart(Number(removeButton.dataset.remove));
+    }
+});
+
+/* ============================
+   CART DRAWER
+============================ */
+
+function openCart() {
+    $("#cartDrawer").classList.add("active");
+    $("#overlay").classList.add("active");
+    document.body.classList.add("no-scroll");
+}
+
+function closeCart() {
+    $("#cartDrawer").classList.remove("active");
+    $("#overlay").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+}
+
+$("#openCart").addEventListener("click", openCart);
+$("#closeCart").addEventListener("click", closeCart);
+$("#overlay").addEventListener("click", closeCart);
+
+/* ============================
+   PRODUCT MODAL
+============================ */
+
+function openProduct(id) {
+    const product = products.find(item => item.id === id);
+    if (!product) return;
+
+    $("#modalContent").innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="modal-details">
+            <div class="section-kicker">${product.category.toUpperCase()}</div>
+            <h3>${product.name}</h3>
+            <div class="product-rating">${product.rating}</div>
+            <p>${product.description}</p>
+            <div class="modal-price">${formatPrice(product.price)}</div>
+            <button class="btn btn-primary" id="modalAddButton">Agregar al carrito +</button>
+        </div>`;
+
+    $("#productModal").classList.add("active");
+    document.body.classList.add("no-scroll");
+
+    $("#modalAddButton").addEventListener("click", () => {
+        addToCart(product.id);
+        closeModal($("#productModal"));
+    });
+}
+
+/* ============================
+   CHECKOUT DEMO
+============================ */
+
+function openCheckout() {
+    if (!cart.length) return;
+
+    closeCart();
+
+    $("#checkoutSummary").innerHTML = `
+        ${cart.map(item => {
+            const product = products.find(product => product.id === item.id);
+            return `<div><span>${product.name} × ${item.quantity}</span><strong>${formatPrice(product.price * item.quantity)}</strong></div>`;
+        }).join("")}
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:12px;font-weight:700">
+            <span>Total</span><strong>${formatPrice(getCartTotal())}</strong>
+        </div>`;
+
+    $("#checkoutModal").classList.add("active");
+    document.body.classList.add("no-scroll");
+}
+
+$("#checkoutButton").addEventListener("click", openCheckout);
+
+$("#confirmDemo").addEventListener("click", () => {
+    const name = $("#demoName").value.trim();
+
+    if (!name) {
+        showToast("Escribe un nombre de demostración.");
+        $("#demoName").focus();
+        return;
+    }
+
+    const orderNumber = "NX-" + Math.floor(10000 + Math.random() * 90000);
+
+    $("#checkoutModal").classList.remove("active");
+    document.body.classList.remove("no-scroll");
+
+    cart = [];
+    saveCart();
+    renderCart();
+    $("#demoName").value = "";
+
+    showToast(`¡Pedido demo ${orderNumber} creado!`);
+});
+
+/* ============================
+   MODAL CONTROLS
+============================ */
+
+function closeModal(modal) {
+    modal.classList.remove("active");
+
+    if (!$("#productModal").classList.contains("active") &&
+        !$("#checkoutModal").classList.contains("active") &&
+        !$("#cartDrawer").classList.contains("active")) {
+        document.body.classList.remove("no-scroll");
+    }
+}
+
+document.querySelectorAll("[data-close-modal]").forEach(button => {
+    button.addEventListener("click", () => {
+        closeModal(button.closest(".modal-wrap"));
+    });
+});
+
+document.querySelectorAll(".modal-wrap").forEach(modal => {
+    modal.addEventListener("click", event => {
+        if (event.target === modal) closeModal(modal);
+    });
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeCart();
+        closeModal($("#productModal"));
+        closeModal($("#checkoutModal"));
+    }
+});
+
+/* ============================
+   MOBILE MENU
+============================ */
+
+$("#menuToggle").addEventListener("click", () => {
+    $("#navLinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+        $("#navLinks").classList.remove("open");
+    });
+});
+
+/* ============================
+   SCROLL ANIMATIONS
+============================ */
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+/* ============================
+   INITIALIZATION
+============================ */
+
+$("#year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();
+
+</script>
+
+</body>
+</html>
